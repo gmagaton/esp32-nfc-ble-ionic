@@ -17,7 +17,7 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
+      title: 'Scanner',
       url: '/list',
       icon: 'list'
     }
@@ -35,6 +35,13 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+    });
+
+  }
+
+  sair() {
+    this.platform.backButton.subscribe(() => {
+      navigator['app'].exitApp();
     });
   }
 }

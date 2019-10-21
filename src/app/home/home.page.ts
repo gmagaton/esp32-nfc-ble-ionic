@@ -7,6 +7,19 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public ledAzul: boolean = false;
+
+  
+  
+
+  constructor() { }
+
+  piscarLedAzul() {
+
+  }
+
+  alterarLedAzul() {
+
+  }
 
 }

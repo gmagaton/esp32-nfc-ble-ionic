@@ -3,25 +3,33 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      List
-    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="scan()">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Dispositivos BT LE</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
+    <ion-item *ngFor="let device of devices">
+      <ion-label>
+        <h2>{{ device.name || 'Unnamed' }}</h2>
+        <h4>{{ device.id }}</h4>
+        <p>RSSI: {{ device.rssi }}</p>
+      </ion-label>
+      <ion-button slot="end" (click)="deviceSelected(device)" shape="round" fill="outline" size="default">
+        Conectar
+      </ion-button>
     </ion-item>
   </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="dark">
+    <p>{{ statusMessage }}</p>
+  </ion-toolbar>
+</ion-footer>

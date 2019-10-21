@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { ListPage } from './list.page';
+import { ActionsPage } from '../actions/actions.page';
 
 @NgModule({
   imports: [
@@ -15,9 +16,13 @@ import { ListPage } from './list.page';
       {
         path: '',
         component: ListPage
+      },
+      {
+        path: 'actions',
+        component: ActionsPage
       }
     ])
   ],
-  declarations: [ListPage]
+  declarations: [ListPage, ActionsPage]
 })
 export class ListPageModule {}
